@@ -30,6 +30,15 @@
       height: 100%;
       object-fit: cover;
     }
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  a:hover { color: #63b3e6; }
+}
 
     /* ── SECTION 2: BIO + PROJECTS ───────────────────────── */
     #bio-section {
@@ -85,7 +94,7 @@
       line-height: 1.7;
     }
 
-    .projects-list li a:hover { color: #888; }
+    .projects-list li a:hover { color: #63b3e6; }
 
  .projects-list {
   grid-column: 2;
@@ -95,6 +104,8 @@
 .proj-sub .proj-num {
   margin-left: 20px;
 }
+
+a:hover { color: #63b3e6; }
 
     /* ── FOOTER ──────────────────────────────────────────── */
     #site-footer {
@@ -106,7 +117,7 @@
     }
 
     #site-footer a { color: #aaa; text-decoration: none; }
-    #site-footer a:hover { color: #111; }
+    #site-footer a:hover { color: #63b3e6; }
 
     /* ── MOBILE ──────────────────────────────────────────── */
     @media (max-width: 700px) {
@@ -154,44 +165,41 @@
         </p>
         <p>
           Mika critically engages with cartography, aerial imagery, and archival
-          research to produce works of video, sound, collage, and writing. They are
-          currently completing an M.S. in Computational Design Practices at Columbia
+          research to produce works of <a href="sand.html">video</a>, <a href="salt.html">sound</a>, <a href="atlas.html">printed matter</a>, and <a href="medium_cold.html">writing</a>. They are
+          currently completing an M.S. in <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">Computational Design Practices</a> at Columbia
           University's Graduate School of Architecture, Planning, and Preservation.
         </p>
       </div>
     </div>
 
-    <div class="projects-section">
+<div class="projects-section">
       <ul class="projects-list">
-        <li><span class="proj-num">1.</span><a href="#">Sand</a></li>
+        <li><span class="proj-num">1.</span><span>Sand</span></li>
         <li class="proj-sub"><span class="proj-num">a.</span><a href="sand.html">Projecting Topographies: Imaging Sand as a Site of Violence and Resistance in Gaza</a></li>
         <li class="proj-sub"><span class="proj-num">b.</span><a href="projecting_topographies.html">Projecting Topographies (II)</a></li>
         <li class="proj-sub"><span class="proj-num">c.</span><a href="borders.html">(Un)Envisioning Future Borders: An Incomplete Genealogy of Environmental Divisions in Gaza</a></li>
         <li class="proj-sub"><span class="proj-num">d.</span><a href="atlas.html">An Atlas of Gaza in Sand: Visualizing State Violence through Sand, Soil, and Land Cover</a></li>
-        <li class="proj-sub"><span class="proj-num">e.</span><a href="atlas.html">Layering Sight Lines: Fall Final Review</a></li>
+        <li class="proj-sub"><span class="proj-num">e.</span><a href="explore_explain.html">Layering Sight Lines: Fall Final Review</a></li>
         <li class="proj-sub"><span class="proj-num">f.</span><a href="methods.html">Gridded Sand: Methods Review</a></li>
         <li class="proj-sub"><span class="proj-num">g.</span><a href="exploration.html">Projecting Topographies: Summer Colloquium Review</a></li>
 
-        <li><span class="proj-num">2.</span><a href="#">Salt</a></li>
+        <li><span class="proj-num">2.</span><span>Salt</span></li>
         <li class="proj-sub"><span class="proj-num">a.</span><a href="salt.html">Salty Ecologies of the Turbid Image</a></li>
 
-        <li><span class="proj-num">3.</span><a href="#">Ice</a></li>
+        <li><span class="proj-num">3.</span><span>Ice</span></li>
         <li class="proj-sub"><span class="proj-num">a.</span><a href="medium_cold.html">Medium Cold</a></li>
         <li class="proj-sub"><span class="proj-num">b.</span><a href="latent_ice.html">What is Latent in Ice</a></li>
+
+        <li><span class="proj-num">4.</span><span>Vision</span></li>
+        <li class="proj-sub"><span class="proj-num">a.</span><a href="perception.html">Perception and the Built Environment</a></li>
+
+
       </ul>
     </div>
-
   </section>
 
 
-  <!-- ══ FOOTER ════════════════════════════════════════════ -->
-  <footer id="site-footer">
-    <span>© 2026 Mika Yassur</span>
-    <span>
-      <a href="mailto:you@email.com">you@email.com</a>
-      &nbsp;&nbsp;·&nbsp;&nbsp;
-    </span>
-  </footer>
+
 
 </body>
 </html>

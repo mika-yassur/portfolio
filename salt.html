@@ -37,11 +37,11 @@ body {
       transition: color 0.2s;
     }
 
-    #nav a:hover { color: #fff; }
+    #nav a:hover { color: #63b3e6; }
 
     /* Once past the hero the nav text flips dark */
     #nav.dark a { color: #aaa; }
-    #nav.dark a:hover { color: #111; }
+    #nav.dark a:hover { color: #63b3e6; }
 
     /* ── SECTION 1: FULLSCREEN VIDEO ─────────────────────── */
     #hero {
@@ -115,7 +115,16 @@ body {
       color: #111;
       line-height: 1.5;
     }
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
 
+a:hover {
+  color: var(--link-hover-color);
+}
+
+a:hover { color: #63b3e6; }
     /* ── SECTION 3: SUPPLEMENTARY MATERIAL ───────────────── */
     /*
       Add your images, video clips, text blocks here.
@@ -191,6 +200,53 @@ body {
       margin-top: 16px;
     }
 
+    /* ── IMAGE STRIP ─────────────────────────────────────── */
+    /*
+      A horizontal row of images, each ~1/3 viewport height.
+      Images sit side by side; if there are many, the row
+      scrolls horizontally without affecting the page layout.
+
+      Usage:
+        <div class="material-block image-strip">
+          <img src="photo1.jpg" alt="" />
+          <img src="photo2.jpg" alt="" />
+          <img src="photo3.jpg" alt="" />
+        </div>
+
+      Optional caption below:
+        <p class="material-caption">Caption text here</p>
+    */
+    .material-block.image-strip {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      overflow-x: auto;
+      overflow-y: visible;
+      width: 100%;
+      /* hide scrollbar visually but keep it functional */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .material-block.image-strip::-webkit-scrollbar {
+      display: none;
+    }
+
+    .material-block.image-strip img {
+      display: block;
+      height: 33vh;          /* ~1/3 of the viewport */
+      width: auto;           /* maintain aspect ratio */
+      flex-shrink: 0;        /* don't squish */
+      object-fit: cover;
+    }
+
+    @media (max-width: 700px) {
+      .material-block.image-strip img {
+        height: 28vh;
+      }
+    }
+    /* ── END IMAGE STRIP ─────────────────────────────────── */
+
     /* ── FOOTER ──────────────────────────────────────────── */
     #site-footer {
       padding: 40px 40px 36px;
@@ -203,7 +259,7 @@ body {
     }
 
     #site-footer a { color: #aaa; text-decoration: none; }
-    #site-footer a:hover { color: #111; }
+    #site-footer a:hover { color: #63b3e6; }
 
     /* ── MOBILE ──────────────────────────────────────────── */
     @media (max-width: 700px) {
@@ -232,7 +288,7 @@ body {
   pointer-events: all;
 }
 
-#audio-toggle:hover { color: #111; }
+#audio-toggle:hover { color: #63b3e6; }
 
   </style>
 
@@ -278,7 +334,7 @@ body {
     </div>
     <div class="meta-row">
       <span class="meta-label">Medium</span>
-      <span class="meta-value">Video; salt prints</span>
+      <span class="meta-value">Video and soundscape; three-fold salt print book</span>
     </div>
     <div class="meta-row">
       <span class="meta-label">Duration</span>
@@ -295,9 +351,9 @@ The Mediterranean Sea is becoming saltier due to climate change. While we may no
 
         </p>
         <p>
-	While discourses surrounding the salinas at Cagliari and Sant Antioco tout the synthesis of “nature and culture” in salt production, these narratives circumvent the ways in which salt ecologies have shaped the creation of infrastructure. By framing infrastructure as a mechanism by which humans “act upon” nature and facilitate its production, these narratives ignore the ways in which we are also bound within these rapidly changing ecologies and climates across scales. 
+	While discourses surrounding the salinas at Cagliari and Sant Antioco tout the synthesis of "nature and culture" in salt production, these narratives circumvent the ways in which salt ecologies have shaped the creation of infrastructure. By framing infrastructure as a mechanism by which humans "act upon" nature and facilitate its production, these narratives ignore the ways in which we are also bound within these rapidly changing ecologies and climates across scales. 
         </p>
-        <p>This project images sites of salty nature-cultures from the middle, that is, from the medium of salt itself. I engage salt printing as a way to examine the edges of these infrastructural and ecological landscapes, thinking through the shoreline itself as a site of representation and of our collective enmeshment within climate. I invoke Bridget Crone’s concept of the “turbid image,” where turbidity refers to the density of particles in water. Crone “offers a means to think about images (and image-making) in a way that extends beyond the visual to the sensory,” drawing “attention to conditions of [the image’s] emergence and the conditions of our own immersion.”
+        <p>This project images sites of salty nature-cultures from the middle, that is, from the medium of salt itself. I engage salt printing as a way to examine the edges of these infrastructural and ecological landscapes, thinking through the shoreline itself as a site of representation and of our collective enmeshment within climate. I invoke Bridget Crone's concept of the "turbid image," where turbidity refers to the density of particles in water. Crone "offers a means to think about images (and image-making) in a way that extends beyond the visual to the sensory," drawing "attention to conditions of [the image's] emergence and the conditions of our own immersion."
         </p>
         <p>
 	Salt printing is a method of creating light sensitive paper prepared with sodium chloride and silver nitrate. Just as in the production of salt itself, salt prints are made through overlapping conditions of brine, sun, atmosphere, time, and human intervention. These prints not only re-image turbidity in content and form but produce turbidity through process, which involves the dissolving of salt and silver nitrate into distilled water. 
@@ -307,7 +363,7 @@ The Mediterranean Sea is becoming saltier due to climate change. While we may no
 
 </p>
 <p>
-    “Like the suspension of grains of sand in a heavy surf” Crone writes, turbidity “has the potential to envelop us within it, sweeping us up into its midst and changing the conditions of what we see and how we see it.” The confused and immersive editing style I experiment with in the video similarly puts viewers in the middle—of the process, of the site, and of the conditions of image making. By pushing and blurring layers of mediation, this piece seeks to remind us that the videos of the site, the “site itself”, its images, us as viewers, are already inside the murky waters of the processes we are trying to photograph. 
+    "Like the suspension of grains of sand in a heavy surf" Crone writes, turbidity "has the potential to envelop us within it, sweeping us up into its midst and changing the conditions of what we see and how we see it." The confused and immersive editing style I experiment with in the video similarly puts viewers in the middle—of the process, of the site, and of the conditions of image making. By pushing and blurring layers of mediation, this piece seeks to remind us that the videos of the site, the "site itself", its images, us as viewers, are already inside the murky waters of the processes we are trying to photograph. 
 
 </p>
       </div>
@@ -326,14 +382,39 @@ The Mediterranean Sea is becoming saltier due to climate change. While we may no
   ═════════════════════════════════════════════════════════ -->
   <section id="supplementary">
 
+    <!-- ── IMAGE STRIP EXAMPLE ──────────────────────────────
+      Drop your image paths into src="". Add or remove <img>
+      tags as needed — the strip will scroll horizontally if
+      there are more images than fit the screen.
+    ─────────────────────────────────────────────────────── -->
+    <div class="material-block image-strip">
+      <img src="salt/IMG_6371.jpeg" alt="" />
+      <img src="salt/IMG_6373.jpeg" alt="" />
+        <img src="salt/IMG_6379.jpeg" alt="" />
+      <img src="salt/IMG_6374.jpeg" alt="" />
+  
+
+    </div>
+    <div class="material-block image-strip">
+
+        <img src="salt/IMG_6377.jpeg" alt="" />
+        <img src="salt/IMG_6378.jpeg" alt="" />
+                      <img src="salt/IMG_6381.jpeg" alt="" />
+
+              <img src="salt/IMG_6372.jpeg" alt="" />
+
+
+    </div>
+    <!-- optional caption: -->
+    <!-- <p class="material-caption">Caption text here</p> -->
 
 
 
 
   <!-- ══ FOOTER ──────────────────────────────────────────── -->
   <footer id="site-footer">
-    <a href="index.html">← All Work</a>
-    <span>Next Project →<!-- swap for <a href="nextproject.html"> when ready --></span>
+    <a href="index.html">← all work</a>
+    <span><a href="medium_cold.html">next project → </a></span>
   </footer>
 
 

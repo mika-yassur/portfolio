@@ -192,3 +192,19 @@ header nav a:hover {
 .toc-list a:hover {
   border-bottom-color: #000;
 }
+
+/* ── LINK COLORS ─────────────────────────────────────── */
+
+:root {
+  --link-color:       #5C3A1E;  /* dark brown */
+  --link-hover-color: #9C6B3C;  /* lighter warm brown */
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
