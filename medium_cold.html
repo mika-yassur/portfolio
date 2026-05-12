@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>What is latent in ice</title>
+
+<link rel="stylesheet" href="https://use.typekit.net/nam2fpz.css">
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  overflow-x: hidden;
+  background: white;
+  color: #111;
+}
+
+/* ── NAV ───────────────────────────── */
+
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  padding: 18px 40px;
+  pointer-events: none;
+}
+
+#nav a {
+  font-size: 13px;
+  color: #111;
+  text-decoration: none;
+  pointer-events: all;
+}
+
+#nav a:hover {
+  color: #888;
+}
+
+/* ── MAIN LAYOUT ───────────────── */
+
+#project-layout {
+  position: relative;
+  width: 100%;
+}
+
+/* ── TEXT PANEL ───────────────── */
+
+.text-column {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+
+  width: 34vw;
+  height: 100vh;
+
+  padding: 100px 50px 80px 50px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  z-index: 500;
+
+  pointer-events: none;
+}
+
+.text-column * {
+  pointer-events: auto;
+}
+
+.project-title {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.project-description p {
+  font-size: 15px;
+  line-height: 1.3;
+  max-width: 48ch;
+  margin-bottom: 18px;
+}
+
+.project-meta {
+  margin-top: 48px;
+}
+
+.meta-row {
+  margin-bottom: 18px;
+}
+
+.meta-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.meta-value {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── IMAGE FIELD ───────────────── */
+
+.image-field {
+  position: relative;
+  width: 100%;
+  height: 6400vh;
+}
+
+/* floating images */
+
+.floating-image {
+  position: absolute;
+  will-change: transform;
+}
+
+.floating-image img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+/* medium-large scattered images */
+
+.img1  { width: 44%; left: 4%;  top: 20vh; }
+.img2  { width: 28%; left: 60%; top: 120vh; }
+.img3  { width: 38%; left: 14%; top: 240vh; }
+.img4  { width: 32%; left: 56%; top: 380vh; }
+.img5  { width: 48%; left: 8%;  top: 520vh; }
+
+.img6  { width: 30%; left: 62%; top: 680vh; }
+.img7  { width: 42%; left: 12%; top: 840vh; }
+.img8  { width: 26%; left: 58%; top: 980vh; }
+.img9  { width: 52%; left: 4%;  top: 1140vh; }
+.img10 { width: 34%; left: 54%; top: 1300vh; }
+
+.img11 { width: 46%; left: 10%; top: 1460vh; }
+.img12 { width: 30%; left: 60%; top: 1620vh; }
+.img13 { width: 50%; left: 6%;  top: 1780vh; }
+.img14 { width: 32%; left: 58%; top: 1940vh; }
+.img15 { width: 40%; left: 16%; top: 2100vh; }
+
+.img16 { width: 28%; left: 64%; top: 2260vh; }
+.img17 { width: 48%; left: 8%;  top: 2420vh; }
+.img18 { width: 24%; left: 62%; top: 2580vh; }
+.img19 { width: 44%; left: 12%; top: 2740vh; }
+.img20 { width: 34%; left: 58%; top: 2900vh; }
+
+.img21 { width: 54%; left: 4%;  top: 3060vh; }
+.img22 { width: 28%; left: 62%; top: 3220vh; }
+.img23 { width: 42%; left: 10%; top: 3380vh; }
+.img24 { width: 26%; left: 60%; top: 3540vh; }
+.img25 { width: 48%; left: 8%;  top: 3700vh; }
+
+.img26 { width: 32%; left: 56%; top: 3860vh; }
+.img27 { width: 40%; left: 14%; top: 4020vh; }
+.img28 { width: 28%; left: 60%; top: 4180vh; }
+.img29 { width: 52%; left: 6%;  top: 4340vh; }
+.img30 { width: 30%; left: 58%; top: 4500vh; }
+
+.img31 { width: 46%; left: 12%; top: 4660vh; }
+.img32 { width: 26%; left: 64%; top: 4820vh; }
+.img33 { width: 50%; left: 8%;  top: 4980vh; }
+.img34 { width: 34%; left: 56%; top: 5140vh; }
+.img35 { width: 42%; left: 14%; top: 5300vh; }
+
+.img36 { width: 28%; left: 60%; top: 5460vh; }
+.img37 { width: 56%; left: 4%;  top: 5620vh; }
+.img38 { width: 32%; left: 58%; top: 5780vh; }
+
+/* ── FOOTER ───────────────────── */
+
+#site-footer {
+  padding: 40px;
+  border-top: 1px solid #e0e0d8;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 12px;
+  color: #aaa;
+}
+
+#site-footer a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+#site-footer a:hover {
+  color: #111;
+}
+
+/* ── MOBILE ───────────────────── */
+
+@media (max-width: 700px) {
+
+  .text-column {
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    padding: 100px 24px 60px;
+  }
+
+  .image-field {
+    height: 7000vh;
+  }
+
+  .floating-image {
+    width: 78% !important;
+    left: 11% !important;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+
+<nav id="nav">
+  <a href="index.html">←</a>
+</nav>
+
+<!-- MAIN LAYOUT -->
+
+<section id="project-layout">
+
+  <!-- TEXT -->
+
+  <div class="text-column">
+
+    <p class="project-title">Medium Cold:
+Ice at/as Architecture at Camp Century, Greenland</p>
+
+    <div class="project-description">
+
+      <p>
+        This project, part essay, part image assemblage, analyses ice as an elemental medium in the past and future of Camp Century, Greenland, an American military base built down into the ice during the Cold War.
+      </p>
+
+      <p>
+Drawing on Eva Horne’s “Air as Medium,” the essay articulates how ice cannot be reduced to an “externalized object,” but rather materialized the camp’s “condition of possibility, its ‘infrastructure.’” Thinking through ice as medium reveals how it, like air, is “a system of fluxes and forces,” highlighting its various spatialities, including “the tension between the local and the global, the fixed and the traveling, the stable and the flowing...as well as its different temporalities”—from the deep geological past to its capacity to inform future climate models. The toxification of the ice sheet during the camp’s operation and the suspension of these toxic materials—for the time being—after its shutdown bring ice’s elemental properties to the fore.      </p>
+<p>
+    While this project is by no means a complete genealogy of ice as such, it begins to trace how ice was mediated at the site of Camp Century through military video, photographs, reports, and scientific papers. The conception of ice that emerges from these varying forms of representation points to a notably different ontology of ice than we have become accustomed to over the past quarter century or more. In contrast with the calamitous images of receding ice sheets and melting glaciers, the conception of ice materialized in the construction of Camp Century is one of stability and solidity that is then complicated and brought into question through the toxification of this site and the warming of the planet. Through this genealogy, ice is implicated in hyper-local, human, global, planetary, and geological scales. 
+
+</p>
+     
+
+    </div>
+
+    <div class="project-meta">
+
+      <div class="meta-row">
+        <div class="meta-label">Year</div>
+        <div class="meta-value">2025</div>
+      </div>
+
+      <div class="meta-row">
+        <div class="meta-label">Medium</div>
+        <div class="meta-value">
+          Essay, image assemblage
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FLOATING IMAGES -->
+
+  <div class="image-field">
+
+    <div class="floating-image img1"><img src="medium_cold/ice1.png"></div>
+    <div class="floating-image img2"><img src="medium_cold/ice2.png"></div>
+    <div class="floating-image img3"><img src="medium_cold/ice3.png"></div>
+    <div class="floating-image img4"><img src="medium_cold/ice4.png"></div>
+    <div class="floating-image img5"><img src="medium_cold/ice5.png"></div>
+
+    <div class="floating-image img6"><img src="medium_cold/ice6.png"></div>
+    <div class="floating-image img7"><img src="medium_cold/ice7.png"></div>
+    <div class="floating-image img8"><img src="medium_cold/ice8.png"></div>
+    <div class="floating-image img9"><img src="medium_cold/ice9.png"></div>
+    <div class="floating-image img10"><img src="medium_cold/ice10.png"></div>
+
+    <div class="floating-image img11"><img src="medium_cold/ice11.png"></div>
+    <div class="floating-image img12"><img src="medium_cold/ice12.png"></div>
+    <div class="floating-image img13"><img src="medium_cold/ice13.png"></div>
+    <div class="floating-image img14"><img src="medium_cold/ice14.png"></div>
+    <div class="floating-image img15"><img src="medium_cold/ice15.png"></div>
+
+    <div class="floating-image img16"><img src="medium_cold/ice16.png"></div>
+    <div class="floating-image img17"><img src="medium_cold/ice17.png"></div>
+    <div class="floating-image img18"><img src="medium_cold/ice18.png"></div>
+    <div class="floating-image img19"><img src="medium_cold/ice19.png"></div>
+    <div class="floating-image img20"><img src="medium_cold/ice20.png"></div>
+
+    <div class="floating-image img21"><img src="medium_cold/ice21.png"></div>
+    <div class="floating-image img22"><img src="medium_cold/ice22.png"></div>
+    <div class="floating-image img23"><img src="medium_cold/ice23.png"></div>
+    <div class="floating-image img24"><img src="medium_cold/ice24.png"></div>
+    <div class="floating-image img25"><img src="medium_cold/ice25.png"></div>
+
+    <div class="floating-image img26"><img src="medium_cold/ice26.png"></div>
+    <div class="floating-image img27"><img src="medium_cold/ice27.png"></div>
+    <div class="floating-image img28"><img src="medium_cold/ice28.png"></div>
+    <div class="floating-image img29"><img src="medium_cold/ice29.png"></div>
+    <div class="floating-image img30"><img src="medium_cold/ice30.png"></div>
+
+    <div class="floating-image img31"><img src="medium_cold/ice31.png"></div>
+    <div class="floating-image img32"><img src="medium_cold/ice32.png"></div>
+    <div class="floating-image img33"><img src="medium_cold/ice33.png"></div>
+    <div class="floating-image img34"><img src="medium_cold/ice34.png"></div>
+    <div class="floating-image img35"><img src="medium_cold/ice35.png"></div>
+
+    <div class="floating-image img36"><img src="medium_cold/ice36.png"></div>
+    <div class="floating-image img37"><img src="medium_cold/ice37.png"></div>
+    <div class="floating-image img38"><img src="medium_cold/ice38.png"></div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer id="site-footer">
+  <a href="index.html">← All Work</a>
+  <span>Next Project →</span>
+</footer>
+
+<!-- PARALLAX SCROLL -->
+
+<script>
+
+const images = document.querySelectorAll('.floating-image');
+
+window.addEventListener('scroll', () => {
+
+  const scrollY = window.scrollY;
+
+  images.forEach((img, index) => {
+
+    const speed = 0.015 + (index * 0.002);
+
+    img.style.transform =
+      `translateY(-${scrollY * speed}px)`;
+
+  });
+
+});
+
+</script>
+
+</body>
+</html>

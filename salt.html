@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sand — Mika Yassur</title>
+  <style>
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  overflow-x: hidden;
+  background: white;
+  color: #111;
+}
+
+    /* ── NAV ─────────────────────────────────────────────── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 9000;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      pointer-events: none;
+    }
+
+    #nav a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      pointer-events: all;
+      transition: color 0.2s;
+    }
+
+    #nav a:hover { color: #fff; }
+
+    /* Once past the hero the nav text flips dark */
+    #nav.dark a { color: #aaa; }
+    #nav.dark a:hover { color: #111; }
+
+    /* ── SECTION 1: FULLSCREEN VIDEO ─────────────────────── */
+    #hero {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: #111;
+    }
+
+    #hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ── SECTION 2: PROJECT INFO ──────────────────────────── */
+#project-info {
+  padding: 70px 40px 80px;
+  display: grid;
+  grid-template-columns: 55% 45%;
+
+}
+
+
+    /* Left col: title + description */
+    .project-left {}
+
+    .project-title {
+      font-size: 13px;
+      font-weight: normal;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #111;
+      margin-bottom: 28px;
+    }
+
+    .project-description p {
+      font-size: 15px;
+      line-height: 1.3;
+      color: #111;
+      max-width: 58ch;
+      margin-bottom: 18px;
+    }
+
+    .project-description p:last-child { margin-bottom: 0; }
+
+    /* Right col: metadata */
+    .project-meta {
+      padding-top: 2px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    .meta-label {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 3px;
+    }
+
+    .meta-value {
+      font-size: 14px;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    /* ── SECTION 3: SUPPLEMENTARY MATERIAL ───────────────── */
+    /*
+      Add your images, video clips, text blocks here.
+      Each .material-block stacks vertically with generous spacing.
+      Use the layout variants below to control width + alignment.
+    */
+    #supplementary {
+      padding: 0 40px 120px;
+    }
+
+    /* Full width media */
+    .material-block {
+      margin-bottom: 80px;
+    }
+
+    .material-block img,
+    .material-block video {
+      display: block;
+      width: 100%;
+    }
+
+    .material-block video {
+      background: #111;
+    }
+
+    /* Narrow — centered, ~60% width */
+    .material-block.narrow {
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Left-aligned, ~50% width */
+    .material-block.half-left {
+      width: 50%;
+    }
+
+    /* Right-aligned, ~50% width */
+    .material-block.half-right {
+      width: 50%;
+      margin-left: auto;
+    }
+
+    /* Side by side: wrap two .material-block.pair items in .pair-row */
+    .pair-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 80px;
+    }
+
+    .pair-row .material-block {
+      margin-bottom: 0;
+    }
+
+    /* Caption under any block */
+    .material-caption {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    /* Text block within supplementary */
+    .material-block.text-block {
+      max-width: 58ch;
+      font-size: 15px;
+      line-height: 1.75;
+      color: #111;
+    }
+
+    .material-block.text-block p + p {
+      margin-top: 16px;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    #site-footer {
+      padding: 40px 40px 36px;
+      border-top: 1px solid #e0e0d8;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    #site-footer a { color: #aaa; text-decoration: none; }
+    #site-footer a:hover { color: #111; }
+
+    /* ── MOBILE ──────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      #project-info { grid-template-columns: 1fr; gap: 40px; padding: 50px 24px 60px; }
+      #supplementary { padding: 0 24px 80px; }
+      .material-block.narrow,
+      .material-block.half-left,
+      .material-block.half-right { width: 100%; margin-left: 0; }
+      .pair-row { grid-template-columns: 1fr; }
+      #site-footer { padding: 32px 24px; flex-direction: column; gap: 12px; }
+      #nav { padding: 16px 24px; }
+    }
+
+  </style>
+
+<link rel="stylesheet" href="https://use.typekit.net/nam2fpz.css">
+</head>
+<body>
+
+  <!-- ══ NAV ═══════════════════════════════════════════════ -->
+  <nav id="nav">
+
+    <a href="index.html">←</a>
+  </nav>
+
+
+<section id="hero">
+
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;">
+
+    <iframe
+      src="https://player.vimeo.com/video/1191580600?autoplay=1&muted=1&loop=1&background=1&autopause=0"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      style="position:absolute;top:0;left:0;width:100%;height:100%;"
+      title="salt_works_Mika_Yassur_Clinic_Final">
+    </iframe>
+
+  </div>
+
+</section>
+
+</section>
+
+  <!-- ══ PROJECT INFO ══════════════════════════════════════ -->
+<section id="project-info">
+
+  <!-- Left: metadata -->
+  <div class="project-meta">
+    <div class="meta-row">
+      <span class="meta-label">Year</span>
+      <span class="meta-value">2026</span>
+    </div>
+    <div class="meta-row">
+      <span class="meta-label">Medium</span>
+      <span class="meta-value">Video</span>
+    </div>
+    <div class="meta-row">
+      <span class="meta-label">Duration</span>
+      <span class="meta-value">03:06</span>
+    </div>
+  </div>
+
+    <!-- Left: title + description -->
+    <div class="project-left">
+      <p class="project-title">Salty Ecologies of the Turbid Image</p>
+      <div class="project-description">
+        <p>
+The Mediterranean Sea is becoming saltier due to climate change. While we may not be able to easily image or grasp this increasing turbidity, I am interested in imaging the edges of the salinas in Sardinia as shorelines within shorelines, where both salinity and the intersection of infrastructure and natural processes become hypervisible. 
+
+        </p>
+        <p>
+	While discourses surrounding the salinas at Cagliari and Sant Antioco tout the synthesis of “nature and culture” in salt production, these narratives circumvent the ways in which salt ecologies have shaped the creation of infrastructure. By framing infrastructure as a mechanism by which humans “act upon” nature and facilitate its production, these narratives ignore the ways in which we are also bound within these rapidly changing ecologies and climates across scales. 
+        </p>
+        <p>This project images sites of salty nature-cultures from the middle, that is, from the medium of salt itself. I engage salt printing as a way to examine the edges of these infrastructural and ecological landscapes, thinking through the shoreline itself as a site of representation and of our collective enmeshment within climate. I invoke Bridget Crone’s concept of the “turbid image,” where turbidity refers to the density of particles in water. Crone “offers a means to think about images (and image-making) in a way that extends beyond the visual to the sensory,” drawing “attention to conditions of [the image’s] emergence and the conditions of our own immersion.”
+        </p>
+        <p>
+	Salt printing is a method of creating light sensitive paper prepared with sodium chloride and silver nitrate. Just as in the production of salt itself, salt prints are made through overlapping conditions of brine, sun, atmosphere, time, and human intervention. These prints not only re-image turbidity in content and form but produce turbidity through process, which involves the dissolving of salt and silver nitrate into distilled water. 
+</p>
+<p> 
+    	I see the production of turbid liquid conditions in both the image making process and at the site as another layer and embodiment of the interplay between nature-culture. The positive parts of the image are physically printed with salt, materially underscoring the saline conditions of their emergence in both content and form. Just as the conditions of the site are produced through infrastructure and climate, my actions and the weather at the moment I produce these images are similarly imbued in the salt print. 
+
+</p>
+<p>
+    “Like the suspension of grains of sand in a heavy surf” Crone writes, turbidity “has the potential to envelop us within it, sweeping us up into its midst and changing the conditions of what we see and how we see it.” The confused and immersive editing style I experiment with in the video similarly puts viewers in the middle—of the process, of the site, and of the conditions of image making. By pushing and blurring layers of mediation, this piece seeks to remind us that the videos of the site, the “site itself”, its images, us as viewers, are already inside the murky waters of the processes we are trying to photograph. 
+
+</p>
+      </div>
+    </div>
+
+
+
+  </section>
+
+
+  <!-- ══ SUPPLEMENTARY MATERIAL ════════════════════════════
+    
+    Below are examples of every layout block available to you.
+    Delete the ones you don't need, duplicate the ones you do.
+
+  ═════════════════════════════════════════════════════════ -->
+  <section id="supplementary">
+
+
+
+<!-- Side by side images - row 1 -->
+<div class="pair-row">
+  <div class="material-block">
+    <img src="video_imgs/CDP_Griffiths_Yassur_Spring26_FilmStill4.png" alt="">
+  </div>
+  <div class="material-block">
+    <img src="video_imgs/CDP_Griffiths_Yassur_Spring26_FilmStill3.png" alt="">
+  </div>
+</div>
+
+<!-- Side by side images - row 2 -->
+<div class="pair-row">
+  <div class="material-block">
+    <img src="video_imgs/CDP_Griffiths_Yassur_Spring26_FilmStill5.png" alt="">
+  </div>
+  <div class="material-block">
+    <img src="video_imgs/CDP_Griffiths_Yassur_Spring26_FilmStill2.png" alt="">
+  </div>
+</div>
+
+    <!-- Narrow centered image -->
+   
+
+    <!-- Text block -->
+    <div class="material-block text-block">
+      <p>
+        
+      </p>
+    </div>
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1190961145?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="web_clip3"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+  </section>
+
+
+  <!-- ══ FOOTER ──────────────────────────────────────────── -->
+  <footer id="site-footer">
+    <a href="index.html">← All Work</a>
+    <span>Next Project →<!-- swap for <a href="nextproject.html"> when ready --></span>
+  </footer>
+
+
+  <script>
+    // Lazy-load + play/pause supplementary video clips on scroll
+    const videoObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        const v = e.target;
+        if (e.isIntersecting) {
+          if (!v.dataset.loaded) {
+            v.querySelectorAll('source[data-src]').forEach(s => {
+              s.src = s.dataset.src;
+              s.removeAttribute('data-src');
+            });
+            v.load();
+            v.dataset.loaded = 'true';
+          }
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '200px 0px 200px 0px' });
+
+    document.querySelectorAll('video[data-lazy]').forEach(v => videoObs.observe(v));
+
+    // Flip nav from white to dark once past the hero
+    const hero = document.getElementById('hero');
+    const nav  = document.getElementById('nav');
+    const obs  = new IntersectionObserver(([e]) => {
+      nav.classList.toggle('dark', !e.isIntersecting);
+    }, { threshold: 0 });
+    obs.observe(hero);
+  </script>
+
+</body>
+</html>

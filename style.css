@@ -1,0 +1,194 @@
+body {
+  margin: 0;
+  font-family: "Times New Roman", serif;
+}
+
+.page {
+  display: flex;
+  min-height: 100vh; /* fits viewport exactly */
+}
+
+/* LEFT TEXT */
+.text-column {
+  width: 50%;
+  padding: 60px;
+  font-size: 32px; /* ~24pt */
+  text-align: justify;
+}
+
+.spacer {
+  height: 400px;
+}
+
+/* RIGHT IMAGE AREA */
+.image-column {
+  width: 50%;
+  position: relative;
+}
+
+.image-stack {
+  position: sticky;
+  top: 50px;
+  height: 80vh;
+}
+
+/* BASE IMAGE */
+.base-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  z-index: 1;
+}
+
+/* STACKING IMAGE */
+.stack-image {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  opacity: 0;
+  transition: top 0.6s ease, opacity 0.6s ease;
+}
+
+.intro-text {
+  font-size: 32px; /* 24pt */
+  text-align: justify;
+  margin-bottom: 80px;
+}
+
+.body-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: left;
+  margin-bottom: 40px;
+  max-width: 90%;
+}
+
+.final-images {
+  margin-top: 120px;
+}
+
+.text-column .final-images img {
+  display: block;
+  width: 200px;  /* keep your chosen size */
+  height: auto;
+  max-width: none;
+  margin-bottom: 120px;  /* increased spacing between images */
+}
+
+.large-image {
+  display: block;
+  width: 400px;  /* or whatever size you want */
+  max-width: 90%; /* prevents it from overflowing on small screens */
+  height: auto;   /* keeps the aspect ratio */
+  margin: 40px auto; /* centers the image and adds vertical spacing */
+}
+
+header {
+  padding: 20px; /* space around the header */
+}
+
+header nav a {
+  margin-right: 15px; /* space between links if you have multiple */
+  text-decoration: none; /* remove underline */
+  color: #333; /* text color */
+  font-weight: bold; /* optional emphasis */
+  padding: 8px 12px; /* adds clickable area around the link */
+  border-radius: 5px; /* rounded corners */
+  transition: background 0.3s;
+}
+
+header nav a:hover {
+  background-color: #ddd; /* subtle hover effect */
+}
+
+/* Base paragraph style */
+.body-text p {
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+}
+
+/* Citations */
+.citation {
+  font-size: 0.95rem;
+  margin-left: 2rem;        /* indent */
+  text-indent: -1.5rem;     /* hanging indent */
+  color: #222;
+}
+
+/* Commentary */
+.commentary {
+  font-size: 1rem;
+  margin-left: 0;
+  color: #000;
+}
+
+.commentary-list {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1rem;          /* MATCH commentary */
+  line-height: 1.5;
+  margin-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.commentary-list li {
+  font-size: 1rem;          /* force consistency */
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+}
+
+.pdf-container {
+  width: 100%;
+  height: 90vh;        /* nearly full viewport height */
+  margin: 2rem 0 4rem 0;
+  border: 1px solid #ccc; /* optional, makes container visible for testing */
+}
+
+.pdf-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Table of Contents container */
+.toc {
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* "Table of Contents" title */
+.toc-title {
+  font-size: 1.1rem;       /* slightly larger */
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+/* TOC list */
+.toc-list {
+  list-style: none;        /* no bullets */
+  padding-left: 2rem;      /* indentation */
+  margin: 0;
+}
+
+/* TOC list items */
+.toc-list li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Links */
+.toc-list a {
+  text-decoration: none;
+  color: #000;
+  border-bottom: 1px solid #bbb;
+}
+
+.toc-list a:hover {
+  border-bottom-color: #000;
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Times New Roman", Times, serif;
+      overflow-x: hidden;
+    }
+
+    /* ── SECTION 1: FULLSCREEN VIDEO ─────────────────────── */
+    #hero {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: #111;
+    }
+
+    #hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ── SECTION 2: BIO + PROJECTS ───────────────────────── */
+    #bio-section {
+      padding: 60px 80px 100px;
+    }
+
+    .bio-top,
+    .projects-section {
+      display: grid;
+      grid-template-columns: 65% 35%;
+    }
+
+    .bio-top {
+      margin-bottom: 50px;
+    }
+
+    .bio-right {
+      grid-column: 1;
+    }
+
+    .bio-right p {
+      font-size: 15px;
+      line-height: 1.3;
+      color: #111;
+      max-width: 58ch;
+      margin-bottom: 18px;
+    }
+
+    .bio-right p:last-child { margin-bottom: 0; }
+
+    .projects-list {
+      grid-column: 1 / -1;
+      list-style: none;
+    }
+
+    .projects-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      padding: 2px 0;
+    }
+
+    .projects-list li .proj-num {
+      font-size: 13px;
+      color: #aaa;
+      min-width: 28px;
+    }
+
+    .projects-list li a {
+      font-size: 15px;
+      color: #111;
+      text-decoration: none;
+      line-height: 1.7;
+    }
+
+    .projects-list li a:hover { color: #888; }
+
+ .projects-list {
+  grid-column: 2;
+  list-style: none;
+}
+
+.proj-sub .proj-num {
+  margin-left: 20px;
+}
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    #site-footer {
+      padding: 40px 40px 36px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    #site-footer a { color: #aaa; text-decoration: none; }
+    #site-footer a:hover { color: #111; }
+
+    /* ── MOBILE ──────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      #bio-section { padding: 40px 24px 80px; }
+      .bio-top,
+      .projects-section { grid-template-columns: 1fr; }
+      .bio-right,
+      .projects-list { grid-column: 1; }
+      .projects-list { margin-top: 24px; }
+      #site-footer { padding: 32px 24px; flex-direction: column; gap: 8px; }
+    }
+
+  </style>
+
+  <link rel="stylesheet" href="https://use.typekit.net/nam2fpz.css">
+</head>
+<body>
+
+  <!-- ══ VIDEO HERO ═════════════════════════════════════════ -->
+<section id="hero">
+  
+<div style="position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;">
+
+  <iframe
+    src="https://player.vimeo.com/video/1190961262?autoplay=1&muted=1&loop=1&background=1&autopause=0&controls=0&playsinline=1"
+    frameborder="0"
+    allow="autoplay; fullscreen; picture-in-picture"
+    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+    title="salt_works_Mika_Yassur_Clinic_Final">
+  </iframe>
+
+</div>
+
+</section>
+
+  <!-- ══ BIO + PROJECT LIST ════════════════════════════════ -->
+  <section id="bio-section">
+
+    <div class="bio-top">
+      <div class="bio-right">
+        <p>
+          Mika Yassur is a researcher and artist based in New York City. Their work
+          examines personal, political, and computational valences of sight in relation
+          to the built, natural, and destroyed environment.
+        </p>
+        <p>
+          Mika critically engages with cartography, aerial imagery, and archival
+          research to produce works of video, sound, collage, and writing. They are
+          currently completing an M.S. in Computational Design Practices at Columbia
+          University's Graduate School of Architecture, Planning, and Preservation.
+        </p>
+      </div>
+    </div>
+
+    <div class="projects-section">
+      <ul class="projects-list">
+        <li><span class="proj-num">1.</span><a href="#">Sand</a></li>
+        <li class="proj-sub"><span class="proj-num">a.</span><a href="sand.html">Projecting Topographies: Imaging Sand as a Site of Violence and Resistance in Gaza</a></li>
+        <li class="proj-sub"><span class="proj-num">b.</span><a href="projecting_topographies.html">Projecting Topographies (II)</a></li>
+        <li class="proj-sub"><span class="proj-num">c.</span><a href="atlas.html">An Atlas of Gaza in Sand</a></li>
+        <li class="proj-sub"><span class="proj-num">d.</span><a href="atlas.html">Colloquium II: Explore</a></li>
+
+        <li><span class="proj-num">2.</span><a href="#">Salt</a></li>
+        <li class="proj-sub"><span class="proj-num">a.</span><a href="salt.html">Salty Ecologies of the Turbid Image</a></li>
+
+        <li><span class="proj-num">3.</span><a href="#">Ice</a></li>
+        <li class="proj-sub"><span class="proj-num">a.</span><a href="medium_cold.html">Medium Cold</a></li>
+        <li class="proj-sub"><span class="proj-num">b.</span><a href="latent_ice.html">What is Latent in Ice</a></li>
+      </ul>
+    </div>
+
+  </section>
+
+
+  <!-- ══ FOOTER ════════════════════════════════════════════ -->
+  <footer id="site-footer">
+    <span>© 2026 Mika Yassur</span>
+    <span>
+      <a href="mailto:you@email.com">you@email.com</a>
+      &nbsp;&nbsp;·&nbsp;&nbsp;
+    </span>
+  </footer>
+
+</body>
+</html>

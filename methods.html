@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sand — Mika Yassur</title>
+  <style>
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  overflow-x: hidden;
+  background: white;
+  color: #111;
+}
+
+    /* ── NAV ─────────────────────────────────────────────── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 9000;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      pointer-events: none;
+    }
+
+    #nav a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      pointer-events: all;
+      transition: color 0.2s;
+    }
+
+    #nav a:hover { color: #fff; }
+
+    /* Once past the hero the nav text flips dark */
+    #nav.dark a { color: #aaa; }
+    #nav.dark a:hover { color: #111; }
+
+ #hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* this is the key change */
+.sheet-frame {
+  position: absolute;
+  inset: 20px;              /* creates the “border breathing room” */
+  border: 1px solid #e0e0d8;
+  background: white;
+  overflow: hidden;
+}
+
+.sheet-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+    /* ── SECTION 2: PROJECT INFO ──────────────────────────── */
+#project-info {
+  padding: 70px 40px 80px;
+  display: grid;
+  grid-template-columns: 55% 45%;
+
+}
+
+
+    /* Left col: title + description */
+    .project-left {}
+
+    .project-title {
+      font-size: 13px;
+      font-weight: normal;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #111;
+      margin-bottom: 28px;
+    }
+
+    .project-description p {
+      font-size: 15px;
+      line-height: 1.3;
+      color: #111;
+      max-width: 58ch;
+      margin-bottom: 18px;
+    }
+
+    .project-description p:last-child { margin-bottom: 0; }
+
+    /* Right col: metadata */
+    .project-meta {
+      padding-top: 2px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    .meta-label {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 3px;
+    }
+
+    .meta-value {
+      font-size: 14px;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    /* ── SECTION 3: SUPPLEMENTARY MATERIAL ───────────────── */
+    /*
+      Add your images, video clips, text blocks here.
+      Each .material-block stacks vertically with generous spacing.
+      Use the layout variants below to control width + alignment.
+    */
+    #supplementary {
+      padding: 0 40px 120px;
+    }
+
+    /* Full width media */
+    .material-block {
+      margin-bottom: 80px;
+    }
+
+    .material-block img,
+    .material-block video {
+      display: block;
+      width: 100%;
+    }
+
+    .material-block video {
+      background: #111;
+    }
+
+    /* Narrow — centered, ~60% width */
+    .material-block.narrow {
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Left-aligned, ~50% width */
+    .material-block.half-left {
+      width: 50%;
+    }
+
+    /* Right-aligned, ~50% width */
+    .material-block.half-right {
+      width: 50%;
+      margin-left: auto;
+    }
+
+    /* Side by side: wrap two .material-block.pair items in .pair-row */
+    .pair-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 80px;
+    }
+
+    .pair-row .material-block {
+      margin-bottom: 0;
+    }
+
+    /* Caption under any block */
+    .material-caption {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    /* Text block within supplementary */
+    .material-block.text-block {
+      max-width: 58ch;
+      font-size: 15px;
+      line-height: 1.75;
+      color: #111;
+    }
+
+    .material-block.text-block p + p {
+      margin-top: 16px;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    #site-footer {
+      padding: 40px 40px 36px;
+      border-top: 1px solid #e0e0d8;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    #site-footer a { color: #aaa; text-decoration: none; }
+    #site-footer a:hover { color: #111; }
+
+    /* ── MOBILE ──────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      #project-info { grid-template-columns: 1fr; gap: 40px; padding: 50px 24px 60px; }
+      #supplementary { padding: 0 24px 80px; }
+      .material-block.narrow,
+      .material-block.half-left,
+      .material-block.half-right { width: 100%; margin-left: 0; }
+      .pair-row { grid-template-columns: 1fr; }
+      #site-footer { padding: 32px 24px; flex-direction: column; gap: 12px; }
+      #nav { padding: 16px 24px; }
+    }
+
+  </style>
+
+<link rel="stylesheet" href="https://use.typekit.net/nam2fpz.css">
+</head>
+<body>
+
+  <!-- ══ NAV ═══════════════════════════════════════════════ -->
+  <nav id="nav">
+
+    <a href="index.html">←</a>
+  </nav>
+
+<section id="hero">
+
+  <div class="sheet-frame">
+
+    <iframe
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS4kO0CpkB57GD4FwmPunGb1wtMD9-tCDOSkBsSC-teiyyuwwNiEwxk6DsnOSmCX2dwdmZHGiYtkdme/pubhtml?widget=true&headers=false"
+      frameborder="0">
+    </iframe>
+
+  </div>
+
+</section>
+
+</section>
+
+  <!-- ══ PROJECT INFO ══════════════════════════════════════ -->
+<section id="project-info">
+
+  <!-- Left: metadata -->
+  <div class="project-meta">
+    <div class="meta-row">
+      <span class="meta-label">Year</span>
+      <span class="meta-value">2025</span>
+    </div>
+    <div class="meta-row">
+      <span class="meta-label">Medium</span>
+      <span class="meta-value">Google Sheets</span>
+    </div>
+    <div class="meta-row">
+
+    </div>
+  </div>
+
+    <!-- Left: title + description -->
+    <div class="project-left">
+      <p class="project-title">Midterm review Colloquium II Explore, Explain, Propose</p>
+      <div class="project-description">
+        <p>
+Designed entirely in Google Sheets, this presentation explored the implications of the grid in cartography, colonial schemes of measurement, and AI image processing.
+        </p>
+  <p>
+    This piece incorporates archival imagery, maps traced and modelled in QGIS and Rhino, data from scientific soil testing sites, data visualizations based on oral testimonies, and Blender models. 
+  </p>
+      </div>
+    </div>
+
+
+
+  </section>
+
+
+  <!-- ══ SUPPLEMENTARY MATERIAL ════════════════════════════
+    
+    Below are examples of every layout block available to you.
+    Delete the ones you don't need, duplicate the ones you do.
+
+  ═════════════════════════════════════════════════════════ -->
+  <section id="supplementary">
+
+
+
+
+
+
+
+
+  <!-- ══ FOOTER ──────────────────────────────────────────── -->
+  <footer id="site-footer">
+    <a href="index.html">← All Work</a>
+    <span>Next Project →<!-- swap for <a href="nextproject.html"> when ready --></span>
+  </footer>
+
+
+  <script>
+    // Lazy-load + play/pause supplementary video clips on scroll
+    const videoObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        const v = e.target;
+        if (e.isIntersecting) {
+          if (!v.dataset.loaded) {
+            v.querySelectorAll('source[data-src]').forEach(s => {
+              s.src = s.dataset.src;
+              s.removeAttribute('data-src');
+            });
+            v.load();
+            v.dataset.loaded = 'true';
+          }
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '200px 0px 200px 0px' });
+
+    document.querySelectorAll('video[data-lazy]').forEach(v => videoObs.observe(v));
+
+    // Flip nav from white to dark once past the hero
+    const hero = document.getElementById('hero');
+    const nav  = document.getElementById('nav');
+    const obs  = new IntersectionObserver(([e]) => {
+      nav.classList.toggle('dark', !e.isIntersecting);
+    }, { threshold: 0 });
+    obs.observe(hero);
+  </script>
+
+</body>
+</html>
