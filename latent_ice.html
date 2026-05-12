@@ -45,7 +45,19 @@
     }
 
     /* ── IMAGE SIDES ─────────────────────────────────────── */
-    .hero-image,
+
+    /* hero: natural height so portrait image isn't cropped */
+    .hero-image {
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      image-orientation: from-image;
+    }
+
+    /* secondary: fixed viewport height, cover crop */
     .secondary-image {
       position: sticky;
       top: 0;
@@ -53,11 +65,10 @@
       overflow: hidden;
     }
 
-    .hero-image img,
     .secondary-image img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       object-position: center;
       display: block;
       image-orientation: from-image;
@@ -155,7 +166,10 @@
       #hero,
       .secondary-block { grid-template-columns: 1fr; }
 
-      .hero-image,
+      .hero-image {
+        padding-top: 60px;
+      }
+
       .secondary-image {
         position: relative;
         height: 70vw;

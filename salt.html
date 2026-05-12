@@ -217,6 +217,23 @@ body {
       #nav { padding: 16px 24px; }
     }
 
+    #audio-toggle {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 9999;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #aaa;
+  pointer-events: all;
+}
+
+#audio-toggle:hover { color: #111; }
+
   </style>
 
 <link rel="stylesheet" href="https://use.typekit.net/nam2fpz.css">
@@ -247,7 +264,9 @@ body {
 </section>
 
 </section>
+<audio id="site-audio" src="salt_works.wav" loop></audio>
 
+<button id="audio-toggle">&#9654; audio</button>
   <!-- ══ PROJECT INFO ══════════════════════════════════════ -->
 <section id="project-info">
 
@@ -348,7 +367,22 @@ The Mediterranean Sea is becoming saltier due to climate change. While we may no
       nav.classList.toggle('dark', !e.isIntersecting);
     }, { threshold: 0 });
     obs.observe(hero);
-  </script>
+
+
+  const audio = document.getElementById('site-audio');
+  const btn = document.getElementById('audio-toggle');
+
+  btn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      btn.textContent = '◼ audio';
+    } else {
+      audio.pause();
+      btn.textContent = '▶ audio';
+    }
+  });
+</script>
+
 
 </body>
 </html>
