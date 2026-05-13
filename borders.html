@@ -75,18 +75,13 @@
       image-orientation: from-image;
     }
 
-    /* ── TEXT SIDES ──────────────────────────────────────── */
-    .hero-text,
-    .secondary-text {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow-y: auto;
-      padding: 100px 50px 80px 60px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
+.hero-text,
+.secondary-text {
+  padding: 100px 50px 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 
     /* hide scrollbars */
     .hero-text::-webkit-scrollbar,
@@ -171,10 +166,9 @@
         padding-top: 60px;
       }
 
-      .secondary-image {
-        position: relative;
-        height: 70vw;
-      }
+.secondary-image {
+  overflow: hidden;
+}
 
       .hero-text,
       .secondary-text {
