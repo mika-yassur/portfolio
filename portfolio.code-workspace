@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../portolio_materials/fabric_pt"
+		},
+		{
+			"path": "../../colloquium II/explored_explained_proposed/images"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "portfolio"
+	}
+}
