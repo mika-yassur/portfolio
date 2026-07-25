@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title>Photography — Mika Yassur</title>
+<meta name="description" content="Photography portfolio." />
+
+<link rel="stylesheet" href="photography.css" />
+</head>
+<body class="photography">
+
+<button type="button" class="pg-name" id="pg-name-toggle" aria-expanded="false" aria-controls="pg-bio">Mika Yassur</button>
+
+<!-- First line: sits centered over the photo, reads as a continuation of the name -->
+<div class="pg-panel pg-bio-lead" id="pg-bio-lead">
+  <p>is a photographer based in Ridgewood, Queens.</p>
+</div>
+
+<!-- Rest of the bio, tucked in the corner -->
+<div class="pg-panel pg-bio" id="pg-bio">
+  <p>Their work explores ecologies, landscapes, and gastronomy across scales and stages of process, from industrial salt production to kitchens to consumption.</p>
+  <p>Through photography they seek to emphasize vibrancy, materiality, and latent transformation. They shoot digital, film, video, and experiment with <a href="https://www.mikayassur.com/salt.html">alternative printing methods.</a></p>
+</div>
+
+<!-- Edit these links — add, remove, or rename as needed -->
+<nav class="pg-panel pg-links" id="pg-links">
+  <a href="https://www.instagram.com/m.ika_/" target="_blank" rel="noopener">Instagram</a>
+  <a href="https://www.are.na/mika-yassur/channels" target="_blank" rel="noopener">Are.na</a>
+</nav>
+
+<main class="pg-stage" id="pg-stage">
+  <!-- The single photo element is inserted here by the script below -->
+</main>
+
+<script>
+/* =========================================================================
+   Click the photo to reveal the next one, in order, looping back to the
+   first after the last. No animation — the image just swaps.
+   ---------------------------------------------------------------------
+   Your photos live in the "photos" folder as 1.jpg – 11.jpg.
+   ========================================================================= */
+
+const PHOTOS = [
+  "photos/1.jpg",
+  "photos/2.jpg",
+  "photos/3.jpg",
+  "photos/4.jpg",
+  "photos/6.jpg",
+  "photos/7.jpg",
+  "photos/8.jpg",
+  "photos/5.jpg",
+  "photos/9.jpg",
+  "photos/10.JPG",
+  "photos/11.jpg",
+];
+
+/* ---- Name click toggles the bio-lead, bio, and links panels together ---- */
+const nameToggle = document.getElementById("pg-name-toggle");
+const bioLead = document.getElementById("pg-bio-lead");
+const bio = document.getElementById("pg-bio");
+const linksPanel = document.getElementById("pg-links");
+
+nameToggle.addEventListener("click", () => {
+  const isOpen = bio.classList.toggle("pg-bio-visible");
+  bioLead.classList.toggle("pg-bio-visible", isOpen);
+  linksPanel.classList.toggle("pg-bio-visible", isOpen);
+  nameToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+const stage = document.getElementById("pg-stage");
+let index = 0;
+
+const img = document.createElement("img");
+img.className = "pg-photo";
+img.alt = "";
+
+function showPhoto(i) {
+  img.src = PHOTOS[i];
+}
+
+function next() {
+  index = (index + 1) % PHOTOS.length;
+  showPhoto(index);
+}
+
+img.addEventListener("error", () => {
+  img.classList.add("pg-photo-missing");
+  img.removeAttribute("src");
+  img.alt = PHOTOS[index] + " (add this image)";
+});
+
+img.addEventListener("load", () => {
+  img.classList.remove("pg-photo-missing");
+});
+
+img.addEventListener("click", next);
+img.setAttribute("role", "button");
+img.setAttribute("tabindex", "0");
+img.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    next();
+  }
+});
+
+stage.appendChild(img);
+showPhoto(index);
+</script>
+
+</body>
+</html>
