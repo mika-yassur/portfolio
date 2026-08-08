@@ -21,7 +21,9 @@ html, body.photography {
   background: var(--paper);
   color: var(--ink);
   height: 100%;
+  height: 100dvh; /* iOS/Android: account for the address bar instead of the old 100vh, which can leave a sliver scrollable at the bottom */
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent; /* no gray flash on tap for links/buttons */
 }
 
 /* ---------- Name, upper left ---------- */
@@ -86,7 +88,7 @@ html, body.photography {
   pointer-events: auto;
 }
 
-/* ---------- Bio lead-in, centered over the photo ---------- */
+/* ---------- Bio lead-in, next to the name ---------- */
 .pg-bio-lead {
   top: 20px;
   right: 235px;
@@ -116,14 +118,21 @@ html, body.photography {
   margin-bottom: 0;
 }
 
+.pg-bio a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
 .pg-bio a:hover,
 .pg-bio a:focus-visible {
   color: var(--link-hover-color);
   text-decoration: underline;
 }
+
 /* ---------- Stage: one large centered photo ---------- */
 .pg-stage {
   height: 100vh;
+  height: 100dvh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -160,9 +169,57 @@ html, body.photography {
   border: 1px dashed #ddd;
 }
 
+/* ==========================================================================
+   Mobile
+   The desktop layout relies on fixed offsets (bio-lead sitting 235px to
+   the right of the name, bio pinned to a narrow top-right corner) that
+   only work at desktop widths. Below 600px, everything instead stacks in
+   reading order down the left edge: name, then the lead-in line, then the
+   full bio. The links panel stays bottom-left, and the photo gets less
+   padding since screen space is tighter.
+   ========================================================================== */
 @media (max-width: 600px) {
-  .pg-name { top: 20px; left: 20px; font-size: 0.85rem; }
-  .pg-bio-lead { max-width: 78vw; font-size: 1rem; }
-  .pg-bio { top: 20px; right: 20px; max-width: 62vw; font-size: 0.85rem; }
-  .pg-links { bottom: 20px; left: 20px; font-size: 0.85rem; }
+  .pg-name {
+    top: 18px;
+    left: 20px;
+    font-size: 1rem;
+  }
+
+  .pg-bio-lead {
+    top: 54px;
+    left: 20px;
+    right: 20px;
+    max-width: none;
+    text-align: left;
+    font-size: 0.95rem;
+  }
+
+  .pg-bio {
+    top: 100px;
+    left: 20px;
+    right: 20px;
+    max-width: none;
+    font-size: 0.88rem;
+    /* If the bio text runs long on a small screen, it scrolls within its
+       own box instead of overflowing off the bottom of the page. */
+    max-height: 44vh;
+    max-height: 44dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .pg-links {
+    bottom: 20px;
+    left: 20px;
+    font-size: 0.88rem;
+  }
+
+  .pg-stage {
+    padding: 4.5rem 1.25rem 1.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .pg-bio-lead { top: 50px; font-size: 0.9rem; }
+  .pg-bio { top: 92px; }
 }
