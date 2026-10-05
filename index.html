@@ -15,21 +15,28 @@
     }
 
     /* ── SECTION 1: FULLSCREEN VIDEO ─────────────────────── */
-    #hero {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      background: #111;
-    }
+#hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: #111;
+}
 
-    #hero-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+#hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* assumes a 16:9 video; it always covers the container */
+  width: 100vw;
+  height: 56.25vw;      /* 9/16 of the width */
+  min-width: 177.78vh;  /* 16/9 of the height */
+  min-height: 100vh;
+  transform: translate(-50%, -50%);
+  border: 0;
+  pointer-events: none; /* stops the player UI from showing on hover/click */
+}
 a {
   color: var(--link-color);
   text-decoration: none;
@@ -139,15 +146,15 @@ a:hover { color: #63b3e6; }
   <!-- ══ VIDEO HERO ═════════════════════════════════════════ -->
 <section id="hero">
 
-<div style="position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;">
 
+  <section id="hero">
   <iframe
+    id="hero-video"
     src="https://player.vimeo.com/video/1190961262?autoplay=1&muted=1&loop=1&background=1&autopause=0&controls=0&playsinline=1"
-    frameborder="0"
-    allow="autoplay; fullscreen; picture-in-picture"
-    style="position:absolute;top:0;left:0;width:100%;height:100%;"
-    title="salt_works_Mika_Yassur_Clinic_Final">
+    allow="autoplay; fullscreen"
+    frameborder="0">
   </iframe>
+</section>
 
 </div>
 
@@ -159,17 +166,17 @@ a:hover { color: #63b3e6; }
     <div class="bio-top">
       <div class="bio-right">
         <p>
-          Mika Yassur is a researcher and artist based in New York City. Their work
-          examines political and computational genealogies of sight in relation
-          to the built, natural, and destroyed environment.
-        </p>
-        <p>
-          Mika critically engages with cartography, aerial imagery, and archival
-          research to produce works of <a href="sand.html">video</a>, <a href="salt.html">sound</a>, <a href="atlas.html">printed matter</a>, and <a href="medium_cold.html">writing</a>. Their work has appeared in <a href="https://www.culturedmag.com/@/mika-yassur/"><i>CULTURED</i></a> and <a href="https://blackflash.ca/shop/41.1"><i>BlackFlash</i></a>, and they have presented at Storefront for Art and Architecture and <a href="https://www.extraterritorial.studio/">Extraterritorial Studio’s</a> conference Spectres of the Undercommons: Inhumanities in the Wake of Catastrophe at the American University in Cairo. Mika was a resident at Woodward Residency and a fellow with The New School’s Institute for Critical Social Inquiry Summer Seminar with Ariella Aïsha Azoulay. 
+          Mika Yassur is a researcher and artist based in New York City. Their work examines landscape, climate and the technologies that mediate them in colonial contexts; they critically engage with cartography, aerial imagery, and archival research to produce works of <a href="sand.html">video</a>, <a href="salt.html">sound</a>, <a href="atlas.html">printed matter</a>, and <a href="medium_cold.html">writing</a>. 
+           </p>
+           <p>
+          They have presented at Storefront for Art and Architecture and <a href="https://www.extraterritorial.studio/">Extraterritorial Studio’s</a> conference Spectres of the Undercommons: Inhumanities in the Wake of Catastrophe at the American University in Cairo. 
         </p>
         <p>
           They hold an M.S. in <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">Computational Design Practices</a> from Columbia
-          University's Graduate School of Architecture, Planning, and Preservation.
+          University's Graduate School of Architecture, Planning, and Preservation. Mika is currently a Teaching Associate at Columbia GSAPP and freelance researcher. 
+        </p>
+        <p>
+          For questions, commissions, and collaborations please <a href="mailto:mika.j.yassur@gmail.com">get in touch here.</a>
         </p>
       </div>
     </div>
